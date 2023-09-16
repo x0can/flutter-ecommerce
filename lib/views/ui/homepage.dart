@@ -1,6 +1,8 @@
 import 'package:ant_icons/ant_icons.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/sneakers_model.dart';
+import 'package:food_delivery/services/helper.dart';
 import 'package:food_delivery/views/shared/appstyle.dart';
 import 'package:food_delivery/views/shared/product_card.dart';
 
@@ -15,8 +17,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late final TabController _tabController =
       TabController(length: 3, vsync: this);
 
+  late Future<List<Sneakers>> _male;
+  late Future<List<Sneakers>> _female;
+  late Future<List<Sneakers>> _kids;
+
+  
+
+  void getFemale() {
+    _female = Helper().getMaleSneakers();
+  }
+
+  void getKids() {
+    _kids = Helper().getMaleSneakers();
+  }
+
   @override
   Widget build(BuildContext context) {
+    _male = Helper().getMaleSneakers();
+
     return Scaffold(
         backgroundColor: const Color(0xFFE2e2e2),
         body: SizedBox(
@@ -77,14 +95,34 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Column(
                     children: [
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.405,
-                        child: ListView.builder(
-                            itemCount: 6,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return const ProductCard(price: '\$20.00', category: 'Men Shoes', id: '1', name: 'Adidas NMD ', image: 'https://img.freepik.com/premium-photo/fashion-running-sneaker-shoes-isolated-white_47469-442.jpg');
-                            }),
-                      ),
+                          height: MediaQuery.of(context).size.height * 0.424,
+                          child: FutureBuilder<List<Sneakers>>(
+                            future: _male,
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return CircularProgressIndicator();
+                              } else if (snapshot.hasError) {
+                                print('error');
+                                return Text("Error ${snapshot.error}");
+                              } else {
+                                final male = snapshot.data;
+                                return ListView.builder(
+                                    itemCount: male!.length,
+                                    scrollDirection: Axis.horizontal,
+                                    itemBuilder: (context, index) {
+                                      final shoe = snapshot.data![index];
+                                      return  ProductCard(
+                                          price: shoe.price,
+                                          category: shoe.category,
+                                          id: shoe.id,
+                                          name:shoe.name,
+                                          image:shoe.imageUrl[0]
+                                              );
+                                    });
+                              }
+                            },
+                          )),
                       Column(
                         children: [
                           Padding(
@@ -116,7 +154,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ],
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.12,
+                        height: MediaQuery.of(context).size.height * 0.10,
                         child: ListView.builder(
                             itemCount: 6,
                             scrollDirection: Axis.horizontal,
