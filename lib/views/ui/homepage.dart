@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                     itemBuilder: (context, index) {
                                       final shoe = snapshot.data![index];
                                       return  ProductCard(
-                                          price: shoe.price,
+                                          price: '\$${shoe.price}',
                                           category: shoe.category,
                                           id: shoe.id,
                                           name:shoe.name,

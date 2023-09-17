@@ -4,8 +4,8 @@
         "name": "Ultraboost Shoes",
         "category": "Men's Running",
         "imageUrl": [
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1400&q=60",
-            "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60"
+        "https://media.istockphoto.com/id/953795296/photo/close-up-view-of-black-sport-running-and-fitness-shoe-sneakers-or-trainers-isolated-on-a-white.webp?b=1&s=170667a&w=0&k=20&c=WfvW62adXX3L28CuBN542rgpBWAixALZEkxhl_zleTc=",
+        "https://media.istockphoto.com/id/953795296/photo/close-up-view-of-black-sport-running-and-fitness-shoe-sneakers-or-trainers-isolated-on-a-white.webp?b=1&s=170667a&w=0&k=20&c=WfvW62adXX3L28CuBN542rgpBWAixALZEkxhl_zleTc="   
         ],
         "oldPrice": "1899.00",
         "sizes": [
@@ -44,13 +44,14 @@
     },
     {
         "id": "1",
-        "name": "Ultraboost Shoes",
+        "name": "Canvas Shoes ADM",
         "category": "Men's Running",
         "imageUrl": [
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1400&q=60",
-            "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60"
+            "https://media.istockphoto.com/id/491603822/photo/pair-of-green-sneakers.webp?b=1&s=170667a&w=0&k=20&c=4ksG8ipf37edpbDUGJlvuiNdF1tMCm4B6NKP_IEqksg=",
+            "https://media.istockphoto.com/id/491603822/photo/pair-of-green-sneakers.webp?b=1&s=170667a&w=0&k=20&c=4ksG8ipf37edpbDUGJlvuiNdF1tMCm4B6NKP_IEqksg="
+
         ],
-        "oldPrice": "1899.00",
+        "oldPrice": "199.00",
         "sizes": [
             {
                 "size": "6.0",
@@ -81,19 +82,19 @@
                 "isSelected": false
             }
         ],
-        "price": "79.0",
+        "price": "69.0",
         "description": "Put some pep in your step with the new adidas",
         "title": "Adidas Running shoes with cooling ventilations"
     },
     {
         "id": "2",
-        "name": "Ultraboost Shoes",
+        "name": "Nike runners shoes",
         "category": "Men's Running",
         "imageUrl": [
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1400&q=60",
-            "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60"
+        "https://media.istockphoto.com/id/477850598/photo/sport-shoes.webp?b=1&s=170667a&w=0&k=20&c=nDfnqgyXvh_7xiY52yvmpDH0yalf3pptcPrKtp7OMW4=",
+        "https://media.istockphoto.com/id/477850598/photo/sport-shoes.webp?b=1&s=170667a&w=0&k=20&c=nDfnqgyXvh_7xiY52yvmpDH0yalf3pptcPrKtp7OMW4="   
         ],
-        "oldPrice": "1899.00",
+        "oldPrice": "189.00",
         "sizes": [
             {
                 "size": "6.0",
@@ -124,50 +125,7 @@
                 "isSelected": false
             }
         ],
-        "price": "79.0",
-        "description": "Put some pep in your step with the new adidas",
-        "title": "Adidas Running shoes with cooling ventilations"
-    },
-    {
-        "id": "3",
-        "name": "Ultraboost Shoes",
-        "category": "Men's Running",
-        "imageUrl": [
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1400&q=60",
-            "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&w=1400&q=60"
-        ],
-        "oldPrice": "1899.00",
-        "sizes": [
-            {
-                "size": "6.0",
-                "isSelected": false
-            },
-            {
-                "size": "6.5",
-                "isSelected": false
-            },
-            {
-                "size": "7.0",
-                "isSelected": false
-            },
-            {
-                "size": "7.5",
-                "isSelected": false
-            },
-            {
-                "size": "8.0",
-                "isSelected": false
-            },
-            {
-                "size": "8.5",
-                "isSelected": false
-            },
-            {
-                "size": "9.0",
-                "isSelected": false
-            }
-        ],
-        "price": "79.0",
+        "price": "89.0",
         "description": "Put some pep in your step with the new adidas",
         "title": "Adidas Running shoes with cooling ventilations"
     }
