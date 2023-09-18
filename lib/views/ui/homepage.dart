@@ -49,10 +49,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Container(
               padding: EdgeInsets.fromLTRB(16, 45, 0, 0),
               height: MediaQuery.of(context).size.height * 0.4,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/top_image.png'),
-                      fit: BoxFit.fill)),
+              decoration: const BoxDecoration(color: Colors.black),
               child: Container(
                 padding: EdgeInsets.only(left: 8, bottom: 15),
                 width: MediaQuery.of(context).size.width,
@@ -98,9 +95,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: Container(
                 padding: const EdgeInsets.only(left: 12),
                 child: TabBarView(controller: _tabController, children: [
-                  HomeWidget(male: _male),
-                  HomeWidget(male: _female),
-                  HomeWidget(male: _kids),
+                  HomeWidget(
+                    male: _male,
+                    tabIndex: _tabController.index,
+                  ),
+                  HomeWidget(male: _female, tabIndex: _tabController.index),
+                  HomeWidget(male: _kids, tabIndex: _tabController.index),
                 ]),
               ),
             )

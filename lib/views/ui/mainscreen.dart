@@ -5,7 +5,6 @@ import 'package:food_delivery/controllers/mainscreen_provider.dart';
 import 'package:food_delivery/views/shared/bottom_nav.dart';
 import 'package:food_delivery/views/ui/cartpage.dart';
 import 'package:food_delivery/views/ui/homepage.dart';
-import 'package:food_delivery/views/ui/products_by_cart.dart';
 import 'package:food_delivery/views/ui/profile.dart';
 import 'package:food_delivery/views/ui/searchpage.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +14,7 @@ class MainScreen extends StatelessWidget {
   List<Widget> pageList = const [
     HomePage(),
     SearchPage(),
-    ProductByCat(),
+    HomePage(),
     CartPage(),
     ProfilePage()
   ];
