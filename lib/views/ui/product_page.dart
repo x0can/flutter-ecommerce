@@ -6,6 +6,8 @@ import 'package:food_delivery/controllers/product_provider.dart';
 import 'package:food_delivery/models/sneakers_model.dart';
 import 'package:food_delivery/services/helper.dart';
 import 'package:food_delivery/views/shared/appstyle.dart';
+import 'package:food_delivery/views/shared/checkout_btn.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 class ProductPage extends StatefulWidget {
@@ -20,6 +22,12 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   final PageController pageController = PageController();
+  final _cartBox = Hive.box('cart_box');
+
+  Future<void> _createCart(Map<String, dynamic> newCart) async {
+    await _cartBox.add(newCart);
+  }
+
   late Future<Sneakers> _sneaker;
 
   void getShoes() {
@@ -66,6 +74,7 @@ class _ProductPageState extends State<ProductPage> {
                                 GestureDetector(
                                   onTap: () {
                                     Navigator.pop(context);
+                                    productNotifier.shoeSizes.clear();
                                   },
                                   child: const Icon(
                                     AntIcons.close,
@@ -290,14 +299,149 @@ class _ProductPageState extends State<ProductPage> {
                                                 SizedBox(
                                                   height: 40,
                                                   child: ListView.builder(
-                                                    itemCount:3,
-                                                    scrollDirection: Axis.horizontal,
-                                                    padding: EdgeInsets.zero,
-                                                      itemBuilder: (context, index){
-                                                        // return ChoiceChip(label: label, selected: selected)
+                                                      itemCount: 3,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      padding: EdgeInsets.zero,
+                                                      itemBuilder:
+                                                          (context, index) {
+                                                        final sizes =
+                                                            productNotifier
+                                                                    .shoeSizes[
+                                                                index];
+
+                                                        return Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .symmetric(
+                                                                  horizontal:
+                                                                      8),
+                                                          child: ChoiceChip(
+                                                            shape: RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            60)),
+                                                            disabledColor:
+                                                                Colors.white,
+                                                            side: const BorderSide(
+                                                                color: Colors
+                                                                    .black,
+                                                                width: 1,
+                                                                style:
+                                                                    BorderStyle
+                                                                        .solid),
+                                                            selected: sizes[
+                                                                'isSelected'],
+                                                            onSelected:
+                                                                (newState) {
+                                                              if (productNotifier
+                                                                  .sizes
+                                                                  .contains(sizes[
+                                                                      'size'])) {
+                                                                productNotifier
+                                                                    .sizes
+                                                                    .remove(sizes[
+                                                                        'size']);
+                                                              } else {
+                                                                productNotifier
+                                                                    .sizes
+                                                                    .add(sizes[
+                                                                        'size']);
+                                                              }
+                                                              print(
+                                                                  productNotifier
+                                                                      .sizes);
+                                                              productNotifier
+                                                                  .toggleCheck(
+                                                                      index);
+                                                            },
+                                                            label: Text(
+                                                              sizes['size'],
+                                                              style: appStyle(
+                                                                  18,
+                                                                  sizes['isSelected']
+                                                                      ? const Color
+                                                                          .fromARGB(
+                                                                          255,
+                                                                          15,
+                                                                          14,
+                                                                          14)
+                                                                      : const Color
+                                                                          .fromARGB(
+                                                                          255,
+                                                                          137,
+                                                                          136,
+                                                                          136),
+                                                                  FontWeight
+                                                                      .w500),
+                                                            ),
+                                                          ),
+                                                        );
                                                       }),
                                                 )
                                               ],
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            const Divider(
+                                              indent: 10,
+                                              endIndent: 10,
+                                              color: Colors.black,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            SizedBox(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.8,
+                                              child: Text(
+                                                sneaker.title,
+                                                style: appStyle(
+                                                    26,
+                                                    Colors.black,
+                                                    FontWeight.w700),
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              sneaker.description,
+                                              textAlign: TextAlign.justify,
+                                              maxLines: 4,
+                                              style: appStyle(14, Colors.black,
+                                                  FontWeight.normal),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Align(
+                                              alignment: Alignment.bottomCenter,
+                                              child: Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 12),
+                                                child: CheckoutButton(
+                                                  label: "Add to Cart",
+                                                  onTap: () async {
+                                                    _createCart({
+                                                      "id": sneaker.id,
+                                                      "name": sneaker.name,
+                                                      "category":
+                                                          sneaker.category,
+                                                      "sizes":
+                                                          productNotifier.sizes,
+                                                      "imageUrl":
+                                                          sneaker.imageUrl[0],
+                                                      "price": sneaker.price,
+                                                      "qty": 1
+                                                    });
+                                                  },
+                                                ),
+                                              ),
                                             )
                                           ]),
                                     ),
