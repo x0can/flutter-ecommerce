@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/mainscreen_provider.dart';
+import 'package:food_delivery/controllers/product_provider.dart';
 import 'package:food_delivery/views/ui/mainscreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => MainScreenNotifier())
+    ChangeNotifierProvider(create: (context) => MainScreenNotifier()),
+    ChangeNotifierProvider(create: (context) => ProductNotifier())
   ], child: const MyApp()));
 }
 

@@ -10,7 +10,8 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<MainScreenNotifier>(builder: (context, mainScreenNotifier, child) {
+    return Consumer<MainScreenNotifier>(
+        builder: (context, mainScreenNotifier, child) {
       return SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(10),

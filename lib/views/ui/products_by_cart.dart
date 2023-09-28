@@ -18,7 +18,7 @@ class ProductByCat extends StatefulWidget {
 class _ProductByCatState extends State<ProductByCat>
     with TickerProviderStateMixin {
   late final TabController _tabController =
-      TabController(length: 3, vsync: this);
+      TabController(length: 3, vsync: this, initialIndex: widget.tabIndex);
 
   late Future<List<Sneakers>> _male;
   late Future<List<Sneakers>> _female;
@@ -53,7 +53,6 @@ class _ProductByCatState extends State<ProductByCat>
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: const Color(0xFFE2e2e2),
       body: SizedBox(
@@ -104,7 +103,6 @@ class _ProductByCatState extends State<ProductByCat>
                       tabs: const [
                         Tab(
                           text: 'Mens Shoes',
-                          
                         ),
                         Tab(
                           text: 'Women Shoes',
@@ -126,7 +124,9 @@ class _ProductByCatState extends State<ProductByCat>
                 child: TabBarView(controller: _tabController, children: [
                   LatestShoes(male: _male),
                   LatestShoes(male: _female),
-                  LatestShoes(male: _kids,),
+                  LatestShoes(
+                    male: _kids,
+                  ),
                 ]),
               ),
             )
@@ -251,4 +251,6 @@ class _ProductByCatState extends State<ProductByCat>
               ]),
             ));
   }
+
+
 }

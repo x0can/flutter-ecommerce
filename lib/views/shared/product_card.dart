@@ -27,7 +27,7 @@ class _ProductCardState extends State<ProductCard> {
     bool selected = true;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 0, 20, 0),
+      padding: const EdgeInsets.fromLTRB(8, 10, 20, 0),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular((16))),
         child: Container(
