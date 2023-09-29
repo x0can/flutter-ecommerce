@@ -1,3 +1,4 @@
+import 'package:ant_icons/ant_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/mainscreen_provider.dart';
 import 'package:food_delivery/views/shared/bottom_nav_widget.dart';
@@ -45,8 +46,8 @@ class BottomNavBar extends StatelessWidget {
                   mainScreenNotifier.pageIndex = 2;
                 },
                 icon: mainScreenNotifier.pageIndex == 2
-                    ? Icons.add
-                    : Icons.add_circle_outline,
+                    ? AntIcons.heart
+                    : AntIcons.heart_outline,
               ),
               ButtonNavWidget(
                 onTap: () {
