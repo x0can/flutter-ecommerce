@@ -299,7 +299,8 @@ class _ProductPageState extends State<ProductPage> {
                                                 SizedBox(
                                                   height: 40,
                                                   child: ListView.builder(
-                                                      itemCount: 3,
+                                                      itemCount: productNotifier
+                                                          .shoeSizes.length,
                                                       scrollDirection:
                                                           Axis.horizontal,
                                                       padding: EdgeInsets.zero,
@@ -367,12 +368,8 @@ class _ProductPageState extends State<ProductPage> {
                                                                           15,
                                                                           14,
                                                                           14)
-                                                                      : const Color
-                                                                          .fromARGB(
-                                                                          255,
-                                                                          137,
-                                                                          136,
-                                                                          136),
+                                                                      : Colors
+                                                                          .white,
                                                                   FontWeight
                                                                       .w500),
                                                             ),
@@ -439,6 +436,9 @@ class _ProductPageState extends State<ProductPage> {
                                                       "price": sneaker.price,
                                                       "qty": 1
                                                     });
+                                                    productNotifier.sizes
+                                                        .clear();
+                                                    Navigator.pop(context);
                                                   },
                                                 ),
                                               ),
